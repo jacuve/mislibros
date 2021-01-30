@@ -1,28 +1,31 @@
 <?php
-// tests/Entity/BookEntityTest.php
+
 namespace Tests\MisLibros\Entity;
 
-use MisLibros\Domain\Entity\Book;
-use MisLibros\Domain\Entity\Category;
+use DateTime;
+use MisLibros\Library\Book\Book;
 use PHPUnit\Framework\TestCase;
 
 class BookEntityTest extends TestCase
 {
+
     public function testBookEntity()
     {
-        $mockCategory = $this->createMock('MisLibros\Domain\Entity\Category');
+
+        $mockCategory = $this->CreateMock('MisLibros\Library\Category\Category', 'programming');
 
         $mockCategory
-            ->expects($this->atLeastOnce())
-            ->method('getName')
-            ->willReturn('programming');
+                ->expects($this->atLeastOnce())
+                ->method('getName')
+                ->willReturn('programming');
 
-        $book = new Book('Clean code', 'Robert C. Martin', new \DateTime(), $mockCategory);
+        $book = new Book('Clean code', 'Robert C. Martin', new DateTime(), $mockCategory);
 
         $this->assertEquals('Clean code', $book->getTitle());
         $this->assertEquals('Robert C. Martin', $book->getAuthor());
-        $this->asserttrue($book->getDatePublished() instanceof \DateTime);
+        $this->asserttrue($book->getDatePublished() instanceof DateTime);
 
         $this->assertEquals('programming', $book->getCategory()->getName());
     }
+
 }
