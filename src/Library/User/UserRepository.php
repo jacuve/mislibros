@@ -1,6 +1,6 @@
 <?php
 
-class UserRepository implements RepositoryInterface
+class UserRepository implements Persistence
 {
 
     public $first_name;

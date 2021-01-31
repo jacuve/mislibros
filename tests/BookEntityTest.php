@@ -23,7 +23,7 @@ class BookEntityTest extends TestCase
 
         $this->assertEquals('Clean code', $book->getTitle());
         $this->assertEquals('Robert C. Martin', $book->getAuthor());
-        $this->asserttrue($book->getDatePublished() instanceof DateTime);
+        $this->assertTrue($book->getDatePublished() instanceof DateTime);
 
         $this->assertEquals('programming', $book->getCategory()->getName());
     }

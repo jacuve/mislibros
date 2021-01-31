@@ -1,25 +1,20 @@
 <?php
 
-namespace MisLibros;
+namespace MisLibros\Library\User;
 
 class User
 {
 
-    protected $storage;
+    private $name;
 
-    function __construct()
+    function __construct(string $name)
     {
-        $this->storage = new SessionStorage();
+        $this->name = $name;
     }
 
-    function setLanguage($language)
+    function getName()
     {
-        $this->storage->set('language', $language);
-    }
-
-    function getLanguage()
-    {
-        return $this->storage->get('language');
+        return $this->name;
     }
 
     // ...

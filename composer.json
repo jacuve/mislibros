@@ -4,6 +4,11 @@
             "MisLibros\\": ["src/"]
         }
     },
+    "autoload-dev": {
+        "psr-4": {
+            "Tests\\MisLibros\\": ["tests/"]
+        }
+    },
     "require-dev": {
         "phpunit/phpunit": "^9.5"
     }
